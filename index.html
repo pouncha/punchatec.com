@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUNCHA TEC SARL – Solutions informatiques et connectivité</title>
+<meta name="description" content="PUNCHA TEC SARL, société informatique : connectivité internet et satellite, réseaux et télécoms, infogérance, développement logiciel, matériel informatique et conseil.">
+<meta name="theme-color" content="#1b3a9c">
+<meta property="og:title" content="PUNCHA TEC SARL – Solutions informatiques et connectivité">
+<meta property="og:description" content="Connectivité, réseaux, infogérance, logiciels, matériel et conseil informatique.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+:root{
+  --blue:#1b3a9c; --blue-600:#2447b8; --blue-dark:#132a73; --navy:#0e1d4d; --ink:#152042;
+  --muted:#5b6582; --line:#e2e7f3; --soft:#f3f6fc; --soft-2:#e9eefa; --white:#fff;
+  --accent:#f2b705; --wa:#1f9d55; --radius:16px; --max:1180px;
+  --shadow:0 18px 50px rgba(14,29,77,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:16px}
+img,svg{display:block;max-width:100%}
+a{color:var(--blue)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 .5em;color:var(--navy)}
+h2{font-size:clamp(1.7rem,4.2vw,2.5rem);letter-spacing:-.01em}
+h3{font-size:1.15rem}
+p{margin:0 0 1em}
+section{padding:80px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.8rem}
+.eyebrow::before{content:"";width:28px;height:3px;background:currentColor;border-radius:2px}
+.lead{font-size:1.08rem;color:var(--muted);max-width:660px}
+.head{margin-bottom:44px}
+.head.center{text-align:center}
+.head.center .lead{margin-left:auto;margin-right:auto}
+.head.center .eyebrow::before{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.9rem 1.35rem;border-radius:10px;font-weight:700;text-decoration:none;border:2px solid transparent;transition:transform .15s,background .15s,box-shadow .15s;font-size:.98rem}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-white{background:var(--white);color:var(--blue)}
+.btn-ghost{border-color:rgba(255,255,255,.45);color:var(--white)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-blue{background:var(--blue);color:var(--white)}
+.btn-blue:hover{background:var(--blue-dark)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{box-shadow:0 10px 24px rgba(31,157,85,.3)}
+
+/* Top bar */
+.topbar{background:var(--navy);color:rgba(255,255,255,.8);font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none}
+.topbar .tb-right{display:none;gap:20px}
+@media(min-width:760px){.topbar .tb-right{display:flex}}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{text-decoration:none;display:flex;align-items:center;gap:10px;color:var(--blue)}
+.brand .mark{width:38px;height:38px;border-radius:9px;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.95rem;letter-spacing:.04em}
+.brand b{font-size:1.25rem;letter-spacing:.14em;font-weight:800;line-height:1}
+.brand small{display:block;font-size:.62rem;letter-spacing:.22em;font-weight:700;color:var(--muted);margin-top:3px}
+.menu{display:none;list-style:none;margin:0;padding:0}
+.menu a{text-decoration:none;color:var(--ink);font-weight:600;font-size:.95rem}
+.menu a:hover{color:var(--blue)}
+.menu a.btn,.menu a.btn:hover{color:#fff;padding:.6rem 1.05rem}
+.burger{background:none;border:0;padding:8px;cursor:pointer;color:var(--blue)}
+.burger svg{width:28px;height:28px}
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:14px 20px;text-decoration:none;color:var(--ink);font-weight:600;border-bottom:1px solid var(--line)}
+@media(min-width:960px){.menu{display:flex;gap:26px;align-items:center}.burger,.mobile-menu{display:none!important}}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;color:#fff;padding:76px 0 88px;
+  background:radial-gradient(1200px 500px at 85% -10%,rgba(80,120,255,.35),transparent 60%),linear-gradient(160deg,#1b3a9c 0%,#16307f 55%,#0e1d4d 100%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;gap:48px;align-items:center}
+@media(min-width:980px){.hero .wrap{grid-template-columns:1.1fr .9fr}}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:99px;font-size:.82rem;font-weight:600;margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.2)}
+.hero h1{color:#fff;font-size:clamp(2.1rem,5.6vw,3.5rem);letter-spacing:-.015em;margin-bottom:.45em}
+.hero h1 span{color:#9db4ff}
+.hero p.sub{color:rgba(255,255,255,.85);font-size:1.1rem;max-width:580px;margin-bottom:2rem}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-points{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:30px;font-size:.92rem;color:rgba(255,255,255,.85)}
+.hero-points span{display:flex;align-items:center;gap:8px}
+.hero-points svg{width:18px;height:18px;color:#9db4ff}
+/* Hero visual */
+.visual{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:22px;backdrop-filter:blur(4px)}
+.visual svg.net{width:100%;height:auto}
+.float-card{position:absolute;background:#fff;color:var(--ink);border-radius:14px;padding:12px 14px;box-shadow:0 16px 40px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px;font-size:.85rem}
+.float-card b{display:block;font-size:1.05rem;color:var(--navy)}
+.float-card .fi{width:36px;height:36px;border-radius:10px;background:var(--soft-2);color:var(--blue);display:grid;place-items:center}
+.float-card .fi svg{width:20px;height:20px}
+.fc1{left:-14px;bottom:-22px}
+.fc2{right:-12px;top:-18px}
+@media(max-width:560px){.fc1{left:8px}.fc2{right:8px}}
+
+/* Trust strip */
+.strip{background:var(--white);border-bottom:1px solid var(--line)}
+.strip .wrap{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(min-width:860px){.strip .wrap{grid-template-columns:repeat(4,1fr)}}
+.strip div.s{padding:24px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(min-width:860px){.strip div.s{border-bottom:0}.strip div.s:last-child{border-right:0}}
+.strip div.s:nth-child(2n){border-right:0}
+@media(min-width:860px){.strip div.s:nth-child(2n){border-right:1px solid var(--line)}.strip div.s:last-child{border-right:0}}
+.strip strong{display:block;font-size:clamp(1.5rem,4vw,2rem);color:var(--blue);font-weight:800;line-height:1.1}
+.strip span{font-size:.88rem;color:var(--muted)}
+
+/* Services */
+.grid{display:grid;gap:20px;grid-template-columns:1fr}
+@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid.g3{grid-template-columns:repeat(3,1fr)}.grid.g4{grid-template-columns:repeat(4,1fr)}.grid.g5{grid-template-columns:repeat(5,1fr)}}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:box-shadow .2s,border-color .2s,transform .2s}
+.card:hover{border-color:#c8d3f0;box-shadow:var(--shadow);transform:translateY(-2px)}
+.ico{width:52px;height:52px;border-radius:14px;background:var(--soft-2);color:var(--blue);display:grid;place-items:center;margin-bottom:18px}
+.ico svg{width:26px;height:26px}
+.card .num{position:absolute;top:22px;right:24px;font-size:.8rem;font-weight:800;color:#b6c2e4;letter-spacing:.08em}
+.card p{color:var(--muted);margin:0}
+.card ul{margin:.9rem 0 0;padding:0;list-style:none;color:var(--muted);font-size:.94rem}
+.card li{padding-left:22px;position:relative;margin:.35rem 0}
+.card li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border-radius:2px;background:var(--blue);opacity:.75}
+.card.feature{background:linear-gradient(160deg,#1b3a9c,#0e1d4d);border-color:transparent;color:#fff}
+.card.feature h3{color:#fff}
+.card.feature p,.card.feature ul{color:rgba(255,255,255,.82)}
+.card.feature li::before{background:#9db4ff;opacity:1}
+.card.feature .ico{background:rgba(255,255,255,.12);color:#fff}
+.card.feature .num{color:rgba(255,255,255,.4)}
+.badge{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--accent);color:var(--navy);padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.card .more{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-weight:700;text-decoration:none;color:#fff}
+.card .more svg{width:16px;height:16px}
+
+/* WifiGest */
+.wg{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.wg::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;border:14px solid rgba(255,255,255,.05);box-shadow:0 0 0 90px rgba(255,255,255,.02)}
+.wg .wrap{position:relative;display:grid;gap:44px;align-items:center}
+@media(min-width:960px){.wg .wrap{grid-template-columns:1fr 1fr}}
+.wg h2{color:#fff}
+.wg .eyebrow{color:#9db4ff}
+.wg .lead{color:rgba(255,255,255,.8)}
+.wg-feats{display:grid;gap:14px;grid-template-columns:1fr;margin:26px 0 30px}
+@media(min-width:560px){.wg-feats{grid-template-columns:1fr 1fr}}
+.wg-feats div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;font-size:.93rem;color:rgba(255,255,255,.85)}
+.wg-feats b{display:block;color:#fff;margin-bottom:2px}
+.dash{background:#fff;border-radius:18px;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.35);overflow:hidden}
+.dash-top{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--soft);border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.dash-top i{width:10px;height:10px;border-radius:50%;background:#d5dbea}
+.dash-top span{margin-left:8px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:2px 10px}
+.dash-body{padding:18px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi small{display:block;color:var(--muted);font-size:.72rem}
+.kpi b{font-size:clamp(1rem,2.6vw,1.3rem);color:var(--navy)}
+.chart{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:14px}
+.chart small{color:var(--muted);font-size:.75rem}
+.bars{display:flex;align-items:flex-end;gap:8px;height:110px;margin-top:10px}
+.bars i{flex:1;background:linear-gradient(180deg,#3a5fd6,#1b3a9c);border-radius:5px 5px 0 0}
+.rows{margin-top:14px;display:grid;gap:8px;font-size:.82rem}
+.rows div{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding-bottom:6px}
+.rows em{font-style:normal;color:#1f9d55;font-weight:700}
+
+/* Secteurs */
+.sector{text-align:center;padding:28px 18px}
+.sector .ico{margin:0 auto 14px}
+.sector h3{font-size:1.02rem;margin-bottom:.35em}
+.sector p{font-size:.9rem}
+
+/* Pourquoi */
+.why{background:var(--soft)}
+.why-grid{display:grid;gap:40px;align-items:start}
+@media(min-width:960px){.why-grid{grid-template-columns:.9fr 1.1fr}}
+.why-list{display:grid;gap:16px}
+.why-item{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.why-item .ico{margin:0;flex:none}
+.why-item h3{margin-bottom:.3em}
+.why-item p{margin:0;color:var(--muted)}
+.steps{counter-reset:s;display:grid;gap:14px;margin-top:28px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step::before{counter-increment:s;content:counter(s);flex:none;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;display:grid;place-items:center;font-size:.9rem}
+.step b{display:block;color:var(--navy)}
+.step span{color:var(--muted);font-size:.94rem}
+
+/* Clients */
+.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:760px){.logos{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1000px){.logos{grid-template-columns:repeat(6,1fr)}}
+.logo-ph{height:88px;border:2px dashed #c7d0ea;border-radius:12px;display:grid;place-items:center;text-align:center;color:#8a96b8;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fbfcff;padding:8px}
+.note-ph{margin-top:14px;font-size:.82rem;color:#b07d00;background:#fff8e1;border:1px solid #f5dd8a;border-radius:8px;padding:8px 12px;display:inline-block}
+
+/* Devis */
+.cta{padding:0 0 80px}
+.cta-box{background:linear-gradient(135deg,#1b3a9c,#0e1d4d);border-radius:24px;color:#fff;padding:44px 28px;display:grid;gap:28px;align-items:center;position:relative;overflow:hidden}
+.cta-box::after{content:"";position:absolute;right:-80px;bottom:-120px;width:320px;height:320px;border-radius:50%;border:12px solid rgba(255,255,255,.06)}
+@media(min-width:900px){.cta-box{grid-template-columns:1.3fr .7fr;padding:56px}}
+.cta-box h2{color:#fff}
+.cta-box p{color:rgba(255,255,255,.82);margin:0}
+.cta-actions{display:grid;gap:12px;position:relative;z-index:1}
+
+/* Contact */
+.contact-grid{display:grid;gap:18px}
+@media(min-width:760px){.contact-grid{grid-template-columns:repeat(4,1fr)}}
+.contact-card{display:block;text-decoration:none;color:inherit}
+.contact-card .ico{background:var(--blue);color:#fff}
+.contact-card strong{display:block;color:var(--navy);font-size:1.02rem;word-break:break-word}
+.contact-card span{color:var(--muted);font-size:.92rem;word-break:break-word}
+
+/* Footer */
+footer{background:var(--navy);color:rgba(255,255,255,.75);font-size:.92rem;padding:56px 0 28px}
+footer .cols{display:grid;gap:30px}
+@media(min-width:860px){footer .cols{grid-template-columns:1.4fr 1fr 1fr 1.2fr}}
+footer h4{color:#fff;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+footer a{color:rgba(255,255,255,.9);text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer .brand b{color:#fff}
+footer .brand .mark{background:#fff;color:var(--blue)}
+footer .brand small{color:rgba(255,255,255,.6)}
+.legal dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:.86rem}
+.legal dt{color:rgba(255,255,255,.55)}
+.legal dd{margin:0;color:#fff}
+footer .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;font-size:.82rem;color:rgba(255,255,255,.55);display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+
+.wa-float{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.wa-float svg{width:32px;height:32px;color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Solutions informatiques &amp; connectivité</span>
+    <div class="tb-right">
+      <a href="tel:+22796373838">+227 96 37 38 38</a>
+      <a href="mailto:info@punchatec.com">info@punchatec.com</a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#accueil" aria-label="PUNCHA TEC SARL, accueil">
+      <span class="mark">PT</span>
+      <span><b>PUNCHA TEC</b><small>SOLUTIONS IT &amp; CONNECTIVITÉ</small></span>
+    </a>
+    <ul class="menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pourquoi">Pourquoi nous</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="btn btn-blue" href="#devis">Demander un devis</a></li>
+    </ul>
+    <button class="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu" onclick="var m=document.getElementById('mmenu');var o=m.classList.toggle('open');this.setAttribute('aria-expanded',o)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-menu" id="mmenu" onclick="if(event.target.tagName==='A'){this.classList.remove('open')}">
+    <a href="#services">Services</a>
+    <a href="#pourquoi">Pourquoi nous</a>
+    <a href="#contact">Contact</a>
+    <a href="#devis" style="color:var(--blue)">Demander un devis</a>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="wrap">
+    <div>
+      <span class="pill"><i></i>Votre partenaire informatique</span>
+      <h1>Connectivité, réseaux et <span>solutions informatiques</span> sur mesure</h1>
+      <p class="sub">PUNCHA TEC accompagne ses clients dans tous leurs besoins informatiques : connexion internet et satellite, réseaux, maintenance, logiciels sur mesure, matériel et conseil, avec une équipe réactive et expérimentée.</p>
+      <div class="ctas">
+        <a class="btn btn-white" href="#devis">Demander un devis
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#services">Découvrir nos services</a>
+      </div>
+      <div class="hero-points">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Installation Starlink</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Support à distance</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>Contrats de maintenance</span>
+      </div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <svg class="net" viewBox="0 0 440 320" fill="none">
+        <!-- satellite link -->
+        <path d="M220 60 C 150 100, 120 140, 100 200" stroke="rgba(157,180,255,.6)" stroke-width="2" stroke-dasharray="5 6"/>
+        <path d="M220 60 C 290 100, 320 140, 340 200" stroke="rgba(157,180,255,.6)" stroke-width="2" stroke-dasharray="5 6"/>
+        <path d="M220 60 L 220 170" stroke="rgba(157,180,255,.6)" stroke-width="2" stroke-dasharray="5 6"/>
+        <!-- satellite -->
+        <g transform="translate(220 46)">
+          <rect x="-34" y="-9" width="22" height="18" rx="2" fill="#9db4ff"/>
+          <rect x="12" y="-9" width="22" height="18" rx="2" fill="#9db4ff"/>
+          <rect x="-11" y="-13" width="22" height="26" rx="4" fill="#fff"/>
+          <circle cx="0" cy="0" r="4" fill="#1b3a9c"/>
+        </g>
+        <!-- nodes -->
+        <g>
+          <circle cx="100" cy="214" r="30" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.3)"/>
+          <path d="M88 220v-10l12-8 12 8v10z" fill="#fff"/>
+          <text x="100" y="264" fill="rgba(255,255,255,.8)" font-size="12" text-anchor="middle" font-family="Segoe UI,Arial">Bureaux</text>
+        </g>
+        <g>
+          <circle cx="220" cy="190" r="34" fill="#fff"/>
+          <text x="220" y="196" fill="#1b3a9c" font-size="16" font-weight="800" text-anchor="middle" font-family="Segoe UI,Arial">PT</text>
+          <text x="220" y="244" fill="#fff" font-size="12" font-weight="700" text-anchor="middle" font-family="Segoe UI,Arial">Supervision</text>
+        </g>
+        <g>
+          <circle cx="340" cy="214" r="30" fill="rgba(255,255,255,.1)" stroke="rgba(255,255,255,.3)"/>
+          <path d="M328 206a17 17 0 0 1 24 0M332 211a11 11 0 0 1 16 0" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="340" cy="218" r="3" fill="#fff"/>
+          <text x="340" y="264" fill="rgba(255,255,255,.8)" font-size="12" text-anchor="middle" font-family="Segoe UI,Arial">Sites distants</text>
+        </g>
+        <path d="M130 214 H186 M254 214 H310" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+        <g fill="rgba(255,255,255,.18)"><rect x="40" y="290" width="360" height="6" rx="3"/></g>
+        <g fill="#4ade80"><rect x="40" y="290" width="250" height="6" rx="3"/></g>
+      </svg>
+      <div class="float-card fc2"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span><span>Routeurs supervisés<b>100+</b></span></div>
+      <div class="float-card fc1"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg></span><span>Connexions internet gérées<b>779 000+</b></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES -->
+<div class="strip">
+  <div class="wrap">
+    <div class="s"><strong>100+</strong><span>points Wi-Fi gérés</span></div>
+    <div class="s"><strong>779 000+</strong><span>connexions internet gérées</span></div>
+    <div class="s"><strong>100+</strong><span>routeurs supervisés</span></div>
+    <div class="s"><strong>6</strong><span>domaines d'expertise</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Nos offres</span>
+      <h2>Un partenaire unique pour votre informatique</h2>
+      <p class="lead">De la connexion internet au logiciel métier, nous couvrons toute la chaîne : étude, fourniture, installation, maintenance et accompagnement.</p>
+    </div>
+    <div class="grid g3">
+      <article class="card">
+        <span class="num">01</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a8 8 0 0 1 16 0"/><path d="M7.5 12.5a5 5 0 0 1 9 0"/><circle cx="12" cy="16" r="1.6"/><path d="M12 18v4"/></svg></div>
+        <h3>Connectivité internet &amp; satellite</h3>
+        <p>Un accès internet fiable, partout, y compris en zone isolée.</p>
+        <ul><li>Abonnements internet professionnels</li><li>Installation et gestion de kits Starlink</li><li>Wi-Fi pour bureaux, domiciles et sites distants</li></ul>
+      </article>
+      <article class="card">
+        <span class="num">02</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-3h14v3"/></svg></div>
+        <h3>Réseaux &amp; télécoms</h3>
+        <p>Conception et déploiement de réseaux d'entreprise performants et sécurisés.</p>
+        <ul><li>Routeurs MikroTik, pare-feu, VPN</li><li>Hotspots et Wi-Fi professionnel</li><li>Câblage structuré et liaisons radio</li></ul>
+      </article>
+      <article class="card">
+        <span class="num">03</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></div>
+        <h3>Infogérance &amp; maintenance</h3>
+        <p>Votre parc informatique suivi par des techniciens dédiés.</p>
+        <ul><li>Assistance à distance et intervention sur site</li><li>Contrats de maintenance mensuels</li><li>Sauvegardes, sécurité, mises à jour</li></ul>
+      </article>
+      <article class="card">
+        <span class="num">04</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></div>
+        <h3>Développement logiciel</h3>
+        <p>Des outils numériques adaptés à vos processus.</p>
+        <ul><li>Applications web et mobiles sur mesure</li><li>Sites web professionnels</li><li>Plateformes de gestion connectées aux équipements réseau</li></ul>
+      </article>
+      <article class="card">
+        <span class="num">05</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <h3>Fourniture de matériel informatique</h3>
+        <p>Équipements sélectionnés, livrés et configurés.</p>
+        <ul><li>Ordinateurs, imprimantes, onduleurs</li><li>Routeurs, switchs, points d'accès</li><li>Kits satellite et accessoires</li></ul>
+      </article>
+      <article class="card">
+        <span class="num">06</span>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div>
+        <h3>Conseil informatique</h3>
+        <p>Un regard expert pour vos décisions et vos projets numériques.</p>
+        <ul><li>Audit de l'existant</li><li>Choix des solutions et cahiers des charges</li><li>Accompagnement de projets et appels d'offres</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="why" id="pourquoi">
+  <div class="wrap why-grid">
+    <div>
+      <span class="eyebrow">Pourquoi PUNCHA TEC</span>
+      <h2>Un interlocuteur dédié, une exigence professionnelle</h2>
+      <p class="lead">Nous savons que la continuité de service est vitale pour votre activité. Notre organisation est pensée pour intervenir vite et bien.</p>
+      <div class="steps">
+        <div class="step"><div><b>Étude de votre besoin</b><span>Visite ou échange à distance, puis proposition technique et financière.</span></div></div>
+        <div class="step"><div><b>Déploiement</b><span>Fourniture, installation et configuration par nos techniciens.</span></div></div>
+        <div class="step"><div><b>Suivi et maintenance</b><span>Supervision, support et contrat adapté à votre structure.</span></div></div>
+      </div>
+    </div>
+    <div class="why-list">
+      <div class="why-item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Réactivité</h3><p>Prise en charge rapide de vos demandes et délais d'intervention annoncés dès le départ.</p></div></div>
+      <div class="why-item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4M9 10l2 2 4-4"/></svg></div><div><h3>Support à distance</h3><p>La plupart des incidents sont résolus à distance, sans attendre un déplacement.</p></div></div>
+      <div class="why-item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><h3>Interlocuteur dédié</h3><p>Un seul contact suit votre dossier de bout en bout, de l'étude jusqu'au support.</p></div></div>
+      <div class="why-item"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><h3>Entreprise immatriculée</h3><p>SARL de droit nigérien, RCCM et NIF à jour, en mesure de répondre aux appels d'offres.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS : section masquée en attendant de vrais logos clients. Supprimer cette ligne et le « --> » après </section> pour la réafficher.
+<section id="references">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Références</span>
+      <h2>Ils nous font confiance</h2>
+    </div>
+    <div class="logos">
+      <div class="logo-ph">Logo client 1<br>à remplacer</div>
+      <div class="logo-ph">Logo client 2<br>à remplacer</div>
+      <div class="logo-ph">Logo client 3<br>à remplacer</div>
+      <div class="logo-ph">Logo client 4<br>à remplacer</div>
+      <div class="logo-ph">Logo client 5<br>à remplacer</div>
+      <div class="logo-ph">Logo client 6<br>à remplacer</div>
+    </div>
+    <div style="text-align:center"><span class="note-ph">Emplacements provisoires : à remplacer par les logos de vos clients (avec leur accord) ou à retirer avant la mise en ligne.</span></div>
+  </div>
+</section> -->
+
+<!-- DEVIS -->
+<section class="cta" id="devis">
+  <div class="wrap">
+    <div class="cta-box">
+      <div>
+        <span class="eyebrow" style="color:#9db4ff">Devis gratuit</span>
+        <h2>Un projet de connectivité, de réseau ou de logiciel ?</h2>
+        <p>Décrivez votre besoin en quelques lignes : nous vous répondons rapidement avec une proposition adaptée.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-wa" href="https://wa.me/22796373838?text=Bonjour%20PUNCHA%20TEC%2C%20je%20souhaite%20un%20devis%20pour%20" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+          Demander un devis sur WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:info@punchatec.com?subject=Demande%20de%20devis%20PUNCHA%20TEC">Envoyer un e-mail</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Contact</span>
+      <h2>Nous joindre</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="card contact-card" href="https://wa.me/22796373838" target="_blank" rel="noopener">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></div>
+        <strong>WhatsApp</strong><span>+227 96 37 38 38</span>
+      </a>
+      <a class="card contact-card" href="tel:+22796373838">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <strong>Téléphone</strong><span>+227 96 37 38 38</span>
+      </a>
+      <a class="card contact-card" href="mailto:info@punchatec.com">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div>
+        <strong>E-mail</strong><span>info@punchatec.com</span>
+      </a>
+      <div class="card contact-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <strong>Siège</strong><span>Niamey, République du Niger</span>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="brand" href="#accueil"><span class="mark">PT</span><span><b>PUNCHA TEC</b><small>SOLUTIONS IT &amp; CONNECTIVITÉ</small></span></a>
+        <p style="margin-top:16px">Société informatique : connectivité, réseaux, infogérance, logiciels, matériel et conseil.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Connectivité &amp; satellite</a></li>
+          <li><a href="#services">Réseaux &amp; télécoms</a></li>
+          <li><a href="#services">Infogérance</a></li>
+          <li><a href="#services">Développement logiciel</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+22796373838">+227 96 37 38 38</a></li>
+          <li><a href="mailto:info@punchatec.com">info@punchatec.com</a></li>
+          <li><a href="https://punchatec.com">punchatec.com</a></li>
+        </ul>
+      </div>
+      <div class="legal">
+        <h4>Mentions légales</h4>
+        <dl>
+          <dt>Société</dt><dd>PUNCHA TEC SARL</dd>
+          <dt>Capital</dt><dd>200 000 FCFA</dd>
+          <dt>RCCM</dt><dd>NE-NIM-01-2026-B13-00635</dd>
+          <dt>NIF</dt><dd>177911/R</dd>
+          <dt>Siège</dt><dd>Niamey, Niger</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="y">2026</span> PUNCHA TEC SARL. Tous droits réservés.</span>
+      <span>punchatec.com</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/22796373838" target="_blank" rel="noopener" aria-label="Nous écrire sur WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
