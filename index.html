@@ -188,6 +188,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdro
 @media(min-width:760px){.logos{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1000px){.logos{grid-template-columns:repeat(6,1fr)}}
 .logo-ph{height:88px;border:2px dashed #c7d0ea;border-radius:12px;display:grid;place-items:center;text-align:center;color:#8a96b8;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#fbfcff;padding:8px}
+.clients{display:grid;grid-template-columns:1fr;gap:16px;max-width:900px;margin:0 auto}
+@media(min-width:760px){.clients{grid-template-columns:repeat(3,1fr)}}
+.client{display:flex;align-items:center;gap:14px;padding:18px 20px;border:1px solid #dfe5f3;border-radius:14px;background:#fff;box-shadow:0 2px 10px rgba(14,29,77,.05)}
+.client-ini{width:48px;height:48px;border-radius:12px;background:#eef2fc;color:var(--blue);display:grid;place-items:center;font-weight:800;letter-spacing:.04em;flex:none}
+.client-name{font-weight:700;color:#0e1d4d;font-size:1.02rem;line-height:1.25}
 .note-ph{margin-top:14px;font-size:.82rem;color:#b07d00;background:#fff8e1;border:1px solid #f5dd8a;border-radius:8px;padding:8px 12px;display:inline-block}
 
 /* Devis */
@@ -409,24 +414,20 @@ footer .bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;paddin
   </div>
 </section>
 
-<!-- CLIENTS : section masquée en attendant de vrais logos clients. Supprimer cette ligne et le « --> » après </section> pour la réafficher.
+<!-- CLIENTS -->
 <section id="references">
   <div class="wrap">
     <div class="head center">
       <span class="eyebrow">Références</span>
       <h2>Ils nous font confiance</h2>
     </div>
-    <div class="logos">
-      <div class="logo-ph">Logo client 1<br>à remplacer</div>
-      <div class="logo-ph">Logo client 2<br>à remplacer</div>
-      <div class="logo-ph">Logo client 3<br>à remplacer</div>
-      <div class="logo-ph">Logo client 4<br>à remplacer</div>
-      <div class="logo-ph">Logo client 5<br>à remplacer</div>
-      <div class="logo-ph">Logo client 6<br>à remplacer</div>
+    <div class="clients">
+      <div class="client"><span class="client-ini" aria-hidden="true">AV</span><span class="client-name">Amir Voyage</span></div>
+      <div class="client"><span class="client-ini" aria-hidden="true">OT</span><span class="client-name">One Technologies</span></div>
+      <div class="client"><span class="client-ini" aria-hidden="true">HG</span><span class="client-name">Hôtel Galaxie Dosso</span></div>
     </div>
-    <div style="text-align:center"><span class="note-ph">Emplacements provisoires : à remplacer par les logos de vos clients (avec leur accord) ou à retirer avant la mise en ligne.</span></div>
   </div>
-</section> -->
+</section>
 
 <!-- DEVIS -->
 <section class="cta" id="devis">
