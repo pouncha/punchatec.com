@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1b3a9c">
+<title>Espace équipe PUNCHA TEC</title>
+<link rel="icon" href="../favicon-64.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<style>
+:root{--bleu:#1b3a9c;--bleu2:#2c56d6;--fond:#f3f5fb;--carte:#fff;--txt:#14213d;--doux:#5b6680;--ligne:#e2e6f0;--rouge:#c62828;--vert:#2e7d32}
+@media (prefers-color-scheme:dark){:root{--fond:#0d1324;--carte:#161e36;--txt:#e8ecf7;--doux:#9aa5c2;--ligne:#26304f;--bleu2:#6f8ff5}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--fond);color:var(--txt);font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;font-size:16px;-webkit-text-size-adjust:100%}
+button,input{font:inherit}
+.hidden{display:none!important}
+header{background:linear-gradient(135deg,#132a73,var(--bleu) 55%,#2c56d6);color:#fff;padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top));display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+header img{width:38px;height:38px;border-radius:10px;background:#fff;padding:3px}
+header .t{flex:1;min-width:0}
+header .t b{display:block;font-size:17px;letter-spacing:.5px}
+header .t small{opacity:.8;font-size:12px}
+header .av{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.7)}
+main{max-width:900px;margin:0 auto;padding:16px 16px 110px}
+.carte{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;padding:18px}
+h1{font-size:22px;margin:4px 0 6px}
+h2{font-size:16px;margin:22px 0 10px;color:var(--doux);font-weight:600;text-transform:uppercase;letter-spacing:.6px}
+p{line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:12px 16px;background:var(--bleu);color:#fff;font-weight:600;cursor:pointer}
+.btn.sec{background:transparent;color:var(--bleu2);border:1px solid var(--ligne)}
+.btn.rouge{background:var(--rouge)}
+.btn:disabled{opacity:.5}
+.champ{width:100%;padding:13px 14px;border:1px solid var(--ligne);border-radius:12px;background:var(--fond);color:var(--txt);margin:8px 0 12px}
+.err{color:var(--rouge);font-size:14px;min-height:20px}
+.grille{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:640px){.grille{grid-template-columns:repeat(4,1fr)}}
+.tuile{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;padding:16px 12px;text-align:left;cursor:pointer;color:var(--txt);display:flex;flex-direction:column;gap:10px;min-height:118px;transition:transform .1s}
+.tuile:active{transform:scale(.97)}
+.tuile .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:22px}
+.tuile b{font-size:14.5px;line-height:1.25}
+.fil{display:flex;flex-wrap:wrap;gap:4px;align-items:center;font-size:14px;margin-bottom:12px}
+.fil a{color:var(--bleu2);text-decoration:none;cursor:pointer}
+.fil span{color:var(--doux)}
+.liste{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;overflow:hidden}
+.ligne{display:flex;align-items:center;gap:12px;padding:12px 14px;border-bottom:1px solid var(--ligne);cursor:pointer}
+.ligne:last-child{border-bottom:0}
+.ligne:active{background:var(--fond)}
+.ligne .ic{font-size:24px;width:32px;text-align:center;flex:none}
+.ligne .n{flex:1;min-width:0}
+.ligne .n b{display:block;font-weight:500;font-size:15px;word-break:break-word}
+.ligne .n small{color:var(--doux);font-size:12.5px}
+.vide{padding:28px;text-align:center;color:var(--doux)}
+.barre{position:fixed;left:0;right:0;bottom:0;background:var(--carte);border-top:1px solid var(--ligne);display:flex;justify-content:space-around;padding:8px 6px;padding-bottom:max(8px,env(safe-area-inset-bottom));z-index:5}
+.barre button{background:none;border:0;color:var(--doux);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11.5px;cursor:pointer;padding:4px 10px}
+.barre button span{font-size:22px}
+.barre button.on{color:var(--bleu2);font-weight:600}
+.fab{position:fixed;right:18px;bottom:84px;z-index:6;border-radius:50%;width:58px;height:58px;font-size:28px;box-shadow:0 6px 18px rgba(27,58,156,.4)}
+.voile{position:fixed;inset:0;background:rgba(5,10,25,.6);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+@media(min-width:640px){.voile{align-items:center}}
+.feuille{background:var(--carte);width:100%;max-width:560px;border-radius:18px 18px 0 0;padding:18px 16px;padding-bottom:max(18px,env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+@media(min-width:640px){.feuille{border-radius:18px}}
+.feuille h3{margin:0 0 12px;font-size:17px;word-break:break-word}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.apercu{width:100%;border-radius:12px;background:var(--fond);display:block}
+iframe.apercu{height:62vh;border:0}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:150px;background:#14213d;color:#fff;padding:11px 16px;border-radius:12px;z-index:30;font-size:14px;max-width:90vw;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.charge{display:inline-block;width:18px;height:18px;border:3px solid var(--ligne);border-top-color:var(--bleu2);border-radius:50%;animation:t .8s linear infinite;vertical-align:middle}
+@keyframes t{to{transform:rotate(360deg)}}
+ol li{margin:6px 0;line-height:1.45}
+code{background:var(--fond);padding:2px 6px;border-radius:6px;font-size:14px}
+.connexion{max-width:440px;margin:40px auto}
+.connexion .logo{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.connexion .logo img{width:52px;height:52px}
+details summary{cursor:pointer;color:var(--bleu2);font-weight:600;margin-top:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <img src="../logo-p.png" alt="">
+  <div class="t"><b>PUNCHA TEC</b><small>Espace équipe</small></div>
+  <img id="avatar" class="av hidden" alt="">
+</header>
+
+<!-- CONNEXION -->
+<main id="vConnexion" class="hidden">
+  <div class="carte connexion">
+    <h1>Connexion</h1>
+    <p style="color:var(--doux);margin-top:0">Espace privé réservé à l'équipe PUNCHA TEC.</p>
+    <label for="jeton"><b>Votre clé d'accès</b></label>
+    <input id="jeton" class="champ" type="password" autocomplete="off" placeholder="ghp_…">
+    <div class="err" id="errCo"></div>
+    <button class="btn" id="btnCo" style="width:100%">Se connecter</button>
+    <details style="margin-top:16px">
+      <summary>Comment obtenir ma clé ?</summary>
+      <ol>
+        <li>Créez un compte gratuit sur <b>github.com</b> et donnez votre nom d'utilisateur au gérant pour qu'il vous invite.</li>
+        <li>Acceptez l'invitation reçue par e-mail.</li>
+        <li>Ouvrez <a href="https://github.com/settings/tokens/new?scopes=repo&description=Espace%20PUNCHA%20TEC" target="_blank" rel="noopener">cette page</a> (connecté à GitHub).</li>
+        <li>Dans « Expiration », choisissez <b>No expiration</b> ou 1 an.</li>
+        <li>Laissez la case <b>repo</b> cochée, puis appuyez sur <b>Generate token</b> en bas.</li>
+        <li>Copiez la clé (elle commence par <code>ghp_</code>) et collez-la ici.</li>
+      </ol>
+      <p style="font-size:14px;color:var(--doux)">La clé reste sur votre appareil. Ne la partagez avec personne.</p>
+    </details>
+  </div>
+</main>
+
+<!-- APP -->
+<main id="vApp" class="hidden">
+  <section id="pAccueil">
+    <h1 id="bonjour">Bonjour</h1>
+    <p style="color:var(--doux);margin-top:0">Tous les documents de l'entreprise, au même endroit.</p>
+    <h2>Dossiers</h2>
+    <div class="grille" id="tuiles"></div>
+    <h2>Derniers ajouts</h2>
+    <div class="liste" id="recents"><div class="vide"><span class="charge"></span></div></div>
+  </section>
+
+  <section id="pDossier" class="hidden">
+    <div class="fil" id="fil"></div>
+    <div class="liste" id="contenu"></div>
+    <div class="actions">
+      <button class="btn sec" id="btnNouv">＋ Nouveau dossier</button>
+    </div>
+  </section>
+
+  <section id="pRecherche" class="hidden">
+    <h1>Rechercher</h1>
+    <input id="q" class="champ" type="search" placeholder="Nom de fichier, client, facture…">
+    <div class="liste" id="resultats"><div class="vide">Tapez au moins 2 lettres.</div></div>
+  </section>
+
+  <section id="pCompte" class="hidden">
+    <h1>Mon compte</h1>
+    <div class="carte">
+      <p style="margin-top:0">Connecté en tant que <b id="moi"></b>.</p>
+      <p style="color:var(--doux);font-size:14px">Les fichiers sont gardés dans un espace privé et sécurisé. Chaque ajout ou suppression est enregistré avec le nom de la personne, et un fichier supprimé peut être récupéré par le gérant.</p>
+      <button class="btn rouge" id="btnDeco">Se déconnecter</button>
+    </div>
+  </section>
+</main>
+
+<button class="btn fab hidden" id="fab" title="Ajouter des fichiers">＋</button>
+<input type="file" id="fichiers" multiple class="hidden">
+
+<nav class="barre hidden" id="barre">
+  <button data-p="pAccueil" class="on"><span>🏠</span>Accueil</button>
+  <button data-p="pDossier"><span>📁</span>Dossiers</button>
+  <button data-p="pRecherche"><span>🔍</span>Rechercher</button>
+  <button data-p="pCompte"><span>👤</span>Compte</button>
+</nav>
+
+<div class="voile hidden" id="voile"><div class="feuille" id="feuille"></div></div>
+
+<script>
+const DEPOT = 'pouncha/punchatec-archive';
+const API = 'https://api.github.com';
+const DOSSIERS = {
+  '01-Administratif-juridique': ['⚖️', '#e8eefc', 'Administratif & juridique'],
+  '02-Commercial': ['🧾', '#e6f5ec', 'Commercial'],
+  '03-Clients': ['🤝', '#fff3e0', 'Clients'],
+  '04-Appels-offres': ['📑', '#f3e8fd', "Appels d'offres"],
+  '05-Comptabilite-banque': ['💰', '#e0f7f4', 'Comptabilité & banque'],
+  '06-Technique': ['🛠️', '#eceff4', 'Technique'],
+  '07-Marketing': ['🎨', '#fde8ef', 'Marketing'],
+  '08-Equipe': ['👥', '#e6f0ff', 'Équipe']
+};
+let jeton = '', moi = null, branche = 'main', chemin = '', arbre = null;
+const $ = id => document.getElementById(id);
+const lire = k => { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } };
+const ecrire = (k, v) => { try { v ? localStorage.setItem(k, v) : localStorage.removeItem(k); } catch (e) {} };
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const joli = n => (DOSSIERS[n] ? DOSSIERS[n][2] : n.replace(/^\d\d-/, '').replace(/[-_]/g, ' '));
+const enc = p => p.split('/').map(encodeURIComponent).join('/');
+
+async function gh(url, opts = {}) {
+  const r = await fetch(url.startsWith('http') ? url : API + url, {
+    ...opts,
+    headers: { Authorization: 'Bearer ' + jeton, Accept: 'application/vnd.github+json', ...(opts.headers || {}) }
+  });
+  if (!r.ok) { const e = new Error('HTTP ' + r.status); e.status = r.status; throw e; }
+  return r;
+}
+
+function toast(t, ms = 2600) {
+  const d = document.createElement('div'); d.className = 'toast'; d.textContent = t;
+  document.body.appendChild(d); setTimeout(() => d.remove(), ms);
+}
+
+/* ---------- Connexion ---------- */
+async function connecter(j) {
+  jeton = j.trim();
+  $('errCo').textContent = '';
+  $('btnCo').disabled = true; $('btnCo').innerHTML = '<span class="charge"></span>';
+  try {
+    moi = await (await gh('/user')).json();
+    try {
+      const d = await (await gh('/repos/' + DEPOT)).json();
+      branche = d.default_branch || 'main';
+    } catch (e) {
+      throw new Error(e.status === 404
+        ? "Votre compte n'a pas encore accès. Demandez au gérant de vous inviter, puis acceptez l'invitation."
+        : "Impossible d'ouvrir l'espace. Réessayez.");
+    }
+    ecrire('pt_jeton', jeton);
+    demarrer();
+  } catch (e) {
+    jeton = '';
+    $('errCo').textContent = e.status === 401 ? 'Clé incorrecte ou expirée.' : (e.message.startsWith('HTTP') ? 'Connexion impossible. Vérifiez votre internet.' : e.message);
+    $('vConnexion').classList.remove('hidden');
+  } finally {
+    $('btnCo').disabled = false; $('btnCo').textContent = 'Se connecter';
+  }
+}
+$('btnCo').onclick = () => connecter($('jeton').value);
+$('jeton').addEventListener('keydown', e => { if (e.key === 'Enter') connecter($('jeton').value); });
+$('btnDeco').onclick = () => { ecrire('pt_jeton', ''); location.reload(); };
+
+function demarrer() {
+  $('vConnexion').classList.add('hidden');
+  ['vApp', 'barre'].forEach(i => $(i).classList.remove('hidden'));
+  $('avatar').src = moi.avatar_url; $('avatar').classList.remove('hidden');
+  $('bonjour').textContent = 'Bonjour ' + (moi.name || moi.login).split(' ')[0] + ' 👋';
+  $('moi').textContent = moi.name ? moi.name + ' (' + moi.login + ')' : moi.login;
+  tuiles(); recents();
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (h) ouvrir(h); else page('pAccueil');
+}
+
+/* ---------- Navigation ---------- */
+function page(p) {
+  ['pAccueil', 'pDossier', 'pRecherche', 'pCompte'].forEach(x => $(x).classList.toggle('hidden', x !== p));
+  document.querySelectorAll('.barre button').forEach(b => b.classList.toggle('on', b.dataset.p === p));
+  $('fab').classList.toggle('hidden', p !== 'pDossier' || !chemin);
+  window.scrollTo(0, 0);
+  if (p === 'pRecherche') setTimeout(() => $('q').focus(), 50);
+}
+document.querySelectorAll('.barre button').forEach(b => b.onclick = () => {
+  if (b.dataset.p === 'pDossier') ouvrir(chemin); else { page(b.dataset.p); if (b.dataset.p === 'pAccueil') history.replaceState(null, '', '#'); }
+});
+window.addEventListener('popstate', () => { if (!jeton) return; const h = decodeURIComponent(location.hash.slice(1)); h ? ouvrir(h, true) : page('pAccueil'); });
+
+function tuiles() {
+  $('tuiles').innerHTML = Object.entries(DOSSIERS).map(([k, [ic, bg, n]]) =>
+    `<button class="tuile" data-c="${esc(k)}"><span class="ic" style="background:${bg}">${ic}</span><b>${esc(n)}</b></button>`).join('');
+  $('tuiles').querySelectorAll('button').forEach(b => b.onclick = () => ouvrir(b.dataset.c));
+}
+
+function icone(nom, type) {
+  if (type === 'dir') return '📁';
+  const x = nom.split('.').pop().toLowerCase();
+  return {pdf:'📕',png:'🖼️',jpg:'🖼️',jpeg:'🖼️',gif:'🖼️',webp:'🖼️',svg:'🖼️',heic:'🖼️',docx:'📘',doc:'📘',xlsx:'📗',xls:'📗',csv:'📗',zip:'🗜️',md:'📝',txt:'📝',html:'🌐',pptx:'📙',mp4:'🎬',mov:'🎬'}[x] || '📄';
+}
+const taille = o => o < 1024 ? o + ' o' : o < 1048576 ? Math.round(o / 1024) + ' Ko' : (o / 1048576).toFixed(1) + ' Mo';
+
+async function ouvrir(p, sansHisto) {
+  chemin = p;
+  page('pDossier');
+  if (!sansHisto) history.pushState(null, '', '#' + encodeURIComponent(p));
+  const morceaux = p ? p.split('/') : [];
+  let acc = '';
+  $('fil').innerHTML = '<a data-c="">🏠 Tous les dossiers</a>' + morceaux.map(m => {
+    acc += (acc ? '/' : '') + m;
+    return `<span>›</span><a data-c="${esc(acc)}">${esc(joli(m))}</a>`;
+  }).join('');
+  $('fil').querySelectorAll('a').forEach(a => a.onclick = () => ouvrir(a.dataset.c));
+  $('contenu').innerHTML = '<div class="vide"><span class="charge"></span></div>';
+  try {
+    let items = await (await gh(`/repos/${DEPOT}/contents/${enc(p)}?ref=${branche}`)).json();
+    items = items.filter(i => !(i.name.startsWith('.') || (p === '' && i.name === 'README.md') || i.name === 'LISEZMOI.md'));
+    items.sort((a, b) => (a.type === b.type ? a.name.localeCompare(b.name, 'fr') : a.type === 'dir' ? -1 : 1));
+    if (!items.length) { $('contenu').innerHTML = '<div class="vide">Dossier vide.<br>Appuyez sur ＋ pour ajouter des fichiers.</div>'; return; }
+    $('contenu').innerHTML = items.map((i, k) => `<div class="ligne" data-k="${k}"><span class="ic">${icone(i.name, i.type)}</span>
+      <span class="n"><b>${esc(i.type === 'dir' ? joli(i.name) : i.name)}</b><small>${i.type === 'dir' ? 'Dossier' : taille(i.size)}</small></span><span style="color:var(--doux)">›</span></div>`).join('');
+    $('contenu').querySelectorAll('.ligne').forEach(l => l.onclick = () => {
+      const i = items[l.dataset.k]; i.type === 'dir' ? ouvrir(i.path) : fichier(i);
+    });
+  } catch (e) {
+    $('contenu').innerHTML = '<div class="vide">Impossible de charger ce dossier.</div>';
+  }
+}
+
+/* ---------- Fichier : aperçu, téléchargement, suppression ---------- */
+let urlBlob = null;
+function feuille(html) { $('feuille').innerHTML = html; $('voile').classList.remove('hidden'); }
+function fermer() { $('voile').classList.add('hidden'); if (urlBlob) { URL.revokeObjectURL(urlBlob); urlBlob = null; } }
+$('voile').onclick = e => { if (e.target.id === 'voile') fermer(); };
+
+async function blob(p) {
+  const r = await gh(`/repos/${DEPOT}/contents/${enc(p)}?ref=${branche}`, { headers: { Accept: 'application/vnd.github.raw' } });
+  return r.blob();
+}
+const MIME = {pdf:'application/pdf',png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',webp:'image/webp',svg:'image/svg+xml'};
+
+async function fichier(i) {
+  const x = i.name.split('.').pop().toLowerCase();
+  feuille(`<h3>${icone(i.name)} ${esc(i.name)}</h3><div id="ap" class="vide"><span class="charge"></span></div>
+    <div class="actions"><button class="btn" id="bTel">⬇️ Télécharger</button><button class="btn sec" id="bPart">🔗 Partager</button>
+    <button class="btn sec" id="bSup" style="color:var(--rouge)">🗑️ Supprimer</button><button class="btn sec" id="bFer">Fermer</button></div>
+    <p style="font-size:12.5px;color:var(--doux)">${taille(i.size)} · ${esc(i.path)}</p>`);
+  $('bFer').onclick = fermer;
+  $('bSup').onclick = () => supprimer(i);
+  let b = null;
+  try {
+    b = await blob(i.path);
+    if (MIME[x]) b = new Blob([b], { type: MIME[x] });
+    urlBlob = URL.createObjectURL(b);
+    if (/^(png|jpe?g|gif|webp|svg)$/.test(x)) $('ap').outerHTML = `<img class="apercu" src="${urlBlob}" alt="">`;
+    else if (x === 'pdf') $('ap').outerHTML = `<iframe class="apercu" src="${urlBlob}"></iframe>`;
+    else if (/^(md|txt|csv|html)$/.test(x)) { const t = await b.text(); $('ap').outerHTML = `<pre class="apercu" style="padding:12px;white-space:pre-wrap;max-height:55vh;overflow:auto;font-size:13px">${esc(t.slice(0, 20000))}</pre>`; }
+    else $('ap').innerHTML = 'Pas d\'aperçu pour ce type de fichier.<br>Appuyez sur « Télécharger » pour l\'ouvrir.';
+  } catch (e) { const a = $('ap'); if (a) a.textContent = 'Impossible de charger le fichier.'; }
+  $('bTel').onclick = () => { if (!urlBlob) return; const a = document.createElement('a'); a.href = urlBlob; a.download = i.name; document.body.appendChild(a); a.click(); a.remove(); };
+  $('bPart').onclick = async () => {
+    const f = b && new File([b], i.name, { type: b.type });
+    if (f && navigator.canShare && navigator.canShare({ files: [f] })) { try { await navigator.share({ files: [f], title: i.name }); } catch (e) {} }
+    else toast('Téléchargez le fichier puis envoyez-le par WhatsApp ou e-mail.');
+  };
+}
+
+function supprimer(i) {
+  feuille(`<h3>Supprimer ce fichier ?</h3><p>« ${esc(i.name)} » sera retiré de l'espace. Le gérant pourra le récupérer dans l'historique si besoin.</p>
+    <div class="actions"><button class="btn rouge" id="bOui">Supprimer</button><button class="btn sec" id="bNon">Annuler</button></div>`);
+  $('bNon').onclick = fermer;
+  $('bOui').onclick = async () => {
+    $('bOui').disabled = true;
+    try {
+      await gh(`/repos/${DEPOT}/contents/${enc(i.path)}`, { method: 'DELETE', body: JSON.stringify({ message: 'Suppression : ' + i.path + ' (par ' + moi.login + ')', sha: i.sha, branch: branche }) });
+      fermer(); toast('Fichier supprimé.'); arbre = null; ouvrir(chemin, true); recents();
+    } catch (e) { fermer(); toast('Suppression impossible (' + e.message + ').'); }
+  };
+}
+
+/* ---------- Ajout de fichiers ---------- */
+$('fab').onclick = () => $('fichiers').click();
+const b64 = f => new Promise((ok, ko) => { const r = new FileReader(); r.onload = () => ok(r.result.split(',')[1]); r.onerror = ko; r.readAsDataURL(f); });
+const propre = n => n.normalize('NFC').replace(/[\\/:*?"<>|#%]/g, '-').trim();
+
+$('fichiers').onchange = async e => {
+  const fs = [...e.target.files]; e.target.value = '';
+  if (!fs.length) return;
+  feuille(`<h3>Envoi en cours…</h3><div id="prog"></div>`);
+  let ok = 0;
+  let existants = [];
+  try { existants = (await (await gh(`/repos/${DEPOT}/contents/${enc(chemin)}?ref=${branche}`)).json()).map(x => x.name); } catch (er) {}
+  for (const f of fs) {
+    const ligne = document.createElement('p'); ligne.innerHTML = `<span class="charge"></span> ${esc(f.name)}`; $('prog').appendChild(ligne);
+    if (f.size > 24 * 1048576) { ligne.innerHTML = `❌ ${esc(f.name)} : trop gros (max 24 Mo)`; continue; }
+    let nom = propre(f.name), n = 2;
+    while (existants.includes(nom)) { nom = propre(f.name).replace(/(\.[^.]*)?$/, m => ` (${n})${m}`); n++; }
+    try {
+      await gh(`/repos/${DEPOT}/contents/${enc(chemin + '/' + nom)}`, { method: 'PUT', body: JSON.stringify({ message: 'Ajout : ' + chemin + '/' + nom + ' (par ' + moi.login + ')', content: await b64(f), branch: branche }) });
+      existants.push(nom); ok++; ligne.textContent = '✅ ' + nom;
+    } catch (er) { ligne.textContent = '❌ ' + f.name + ' : échec de l\'envoi'; }
+  }
+  $('prog').insertAdjacentHTML('afterend', `<div class="actions"><button class="btn" id="bFin">Terminé</button></div>`);
+  $('bFin').onclick = fermer;
+  if (ok) { arbre = null; ouvrir(chemin, true); recents(); }
+};
+
+/* ---------- Nouveau dossier ---------- */
+$('btnNouv').onclick = () => {
+  feuille(`<h3>Nouveau dossier</h3><input id="nd" class="champ" placeholder="Ex. : Hotel-Galaxie-Dosso">
+    <div class="actions"><button class="btn" id="bCree">Créer</button><button class="btn sec" id="bAnn">Annuler</button></div>`);
+  $('bAnn').onclick = fermer;
+  setTimeout(() => $('nd').focus(), 50);
+  $('bCree').onclick = async () => {
+    const n = propre($('nd').value).replace(/\s+/g, '-');
+    if (!n) return;
+    const p = (chemin ? chemin + '/' : '') + n;
+    $('bCree').disabled = true;
+    try {
+      await gh(`/repos/${DEPOT}/contents/${enc(p + '/LISEZMOI.md')}`, { method: 'PUT', body: JSON.stringify({ message: 'Nouveau dossier : ' + p + ' (par ' + moi.login + ')', content: btoa('Dossier créé depuis l\'Espace équipe.\n'), branch: branche }) });
+      fermer(); arbre = null; ouvrir(p);
+    } catch (e) { fermer(); toast(e.status === 422 ? 'Ce dossier existe déjà.' : 'Création impossible.'); }
+  };
+};
+
+/* ---------- Recherche ---------- */
+async function chargerArbre() {
+  if (arbre) return arbre;
+  const j = await (await gh(`/repos/${DEPOT}/git/trees/${branche}?recursive=1`)).json();
+  arbre = j.tree.filter(t => t.type === 'blob' && !/(^|\/)(LISEZMOI\.md|README\.md|\.[^/]*)$/.test(t.path));
+  return arbre;
+}
+let minu;
+$('q').oninput = () => { clearTimeout(minu); minu = setTimeout(chercher, 250); };
+const sansAccent = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+async function chercher() {
+  const q = sansAccent($('q').value.trim());
+  if (q.length < 2) { $('resultats').innerHTML = '<div class="vide">Tapez au moins 2 lettres.</div>'; return; }
+  $('resultats').innerHTML = '<div class="vide"><span class="charge"></span></div>';
+  try {
+    const mots = q.split(/\s+/);
+    const r = (await chargerArbre()).filter(t => { const s = sansAccent(t.path); return mots.every(m => s.includes(m)); }).slice(0, 60);
+    if (!r.length) { $('resultats').innerHTML = '<div class="vide">Aucun fichier trouvé.</div>'; return; }
+    $('resultats').innerHTML = r.map((t, k) => { const n = t.path.split('/').pop(); const d = t.path.split('/').slice(0, -1).map(joli).join(' › ');
+      return `<div class="ligne" data-k="${k}"><span class="ic">${icone(n)}</span><span class="n"><b>${esc(n)}</b><small>${esc(d)}</small></span></div>`; }).join('');
+    $('resultats').querySelectorAll('.ligne').forEach(l => l.onclick = () => { const t = r[l.dataset.k]; fichier({ name: t.path.split('/').pop(), path: t.path, size: t.size, sha: t.sha }); });
+  } catch (e) { $('resultats').innerHTML = '<div class="vide">Recherche impossible.</div>'; }
+}
+
+/* ---------- Derniers ajouts ---------- */
+async function recents() {
+  try {
+    const c = await (await gh(`/repos/${DEPOT}/commits?sha=${branche}&per_page=6`)).json();
+    $('recents').innerHTML = c.map(x => {
+      const d = new Date(x.commit.author.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
+      const qui = x.author ? x.author.login : x.commit.author.name;
+      const m = x.commit.message.split('\n')[0];
+      return `<div class="ligne" style="cursor:default"><span class="ic">${m.startsWith('Suppression') ? '🗑️' : '🕘'}</span><span class="n"><b>${esc(m)}</b><small>${esc(qui)} · ${esc(d)}</small></span></div>`;
+    }).join('') || '<div class="vide">Rien pour le moment.</div>';
+  } catch (e) { $('recents').innerHTML = '<div class="vide">Indisponible.</div>'; }
+}
+
+/* ---------- Démarrage ---------- */
+const sauve = lire('pt_jeton');
+if (sauve) connecter(sauve); else $('vConnexion').classList.remove('hidden');
+</script>
+</body>
+</html>
